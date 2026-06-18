@@ -1,6 +1,6 @@
-# Checkmate-Escrow Roadmap
+# JEJEJO Roadmap
 
-This document outlines the planned development phases for Checkmate-Escrow, expanding on the high-level roadmap in the README.
+This document outlines the planned development phases for JEJEJO, expanding on the high-level roadmap in the README.
 
 ---
 
@@ -93,7 +93,7 @@ Q3-Q4 2026
 
 ## v3.0 — Frontend UI & Wallet Integration
 
-Make Checkmate-Escrow accessible to non-technical users.
+Make JEJEJO accessible to non-technical users.
 
 ### Features
 

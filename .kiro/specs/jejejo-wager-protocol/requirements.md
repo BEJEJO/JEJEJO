@@ -2,11 +2,9 @@
 
 ## Introduction
 
-JEJEJO is a trustless prediction market and wager protocol built on Stellar Soroban. It transforms the Checkmate-Escrow chess wagering foundation into a general-purpose, two-party and multi-party wagering platform that supports any verifiable real-world event — sports, finance, esports, and custom categories.
+JEJEJO is a trustless prediction market and wager protocol built on Stellar Soroban. It is a general-purpose, two-party and multi-party wagering platform that supports any verifiable real-world event — sports, finance, esports, and custom categories.
 
-JEJEJO preserves the battle-tested escrow lifecycle state machine, token allowlist, pause/unpause admin, two-step admin transfer, TTL extension, and oracle/result-store patterns from Checkmate-Escrow, while introducing a multi-oracle registry, event category metadata, multi-party pools, dispute windows, a React/TypeScript frontend with Freighter wallet integration, an analytics dashboard, user profiles, push-style notifications, dark/light mode UI, and CSV/JSON data export.
-
-**Attribution**: This product is derived from Checkmate-Escrow, copyright (c) 2026 StellarCheckMate Contributors, licensed under the MIT License. All source files must retain the original MIT license header and acknowledge StellarCheckMate Contributors.
+JEJEJO features a battle-tested escrow lifecycle state machine, token allowlist, pause/unpause admin, two-step admin transfer, TTL extension, and oracle/result-store patterns, along with a multi-oracle registry, event category metadata, multi-party pools, dispute windows, a React/TypeScript frontend with Freighter wallet integration, an analytics dashboard, user profiles, push-style notifications, dark/light mode UI, and CSV/JSON data export.
 
 ---
 
@@ -35,21 +33,21 @@ JEJEJO preserves the battle-tested escrow lifecycle state machine, token allowli
 - **Token**: A Stellar SEP-41 token (XLM, USDC, or other allowlisted token) used as Stake currency.
 - **Allowlist**: The set of Token addresses approved by the Admin for use in new Wagers.
 - **TTL**: Time-to-live — ledgers before a Soroban storage entry expires.
-- **Checkmate_Escrow**: The original open-source project from which JEJEJO is derived (MIT, StellarCheckMate Contributors).
+- **Checkmate_Escrow**: Removed — JEJEJO is its own original protocol.
 
 ---
 
 ## Requirements
 
-### REQ-1: Attribution and License Preservation
+### REQ-1: License
 
-**User Story**: As a user of JEJEJO, I want the project to clearly credit its open-source origins so that license obligations are transparently met.
+**User Story**: As a user of JEJEJO, I want the project to carry a clear open-source license so that contributors and users understand their rights.
 
 **Acceptance Criteria**:
-- AC-1.1: A `NOTICE` file exists at the repository root crediting "Checkmate-Escrow, copyright (c) 2026 StellarCheckMate Contributors" and linking to the original MIT license.
-- AC-1.2: The `LICENSE` file retains the original MIT copyright notice for StellarCheckMate Contributors and adds JEJEJO contributors.
-- AC-1.3: All Rust source files that contain substantial code derived from Checkmate-Escrow carry a `// Originally derived from Checkmate-Escrow (MIT) — StellarCheckMate Contributors` comment at the top.
-- AC-1.4: The `README.md` includes an Acknowledgements section referencing the original project.
+- AC-1.1: A `LICENSE` file exists at the repository root under the MIT License crediting JEJEJO contributors.
+- AC-1.2: The `README.md` includes a License section.
+- AC-1.3: All Rust source files carry the standard MIT license header at the top.
+- AC-1.4: The `README.md` includes an Acknowledgements section crediting the Stellar Development Foundation and other dependencies.
 
 ---
 
@@ -58,7 +56,7 @@ JEJEJO preserves the battle-tested escrow lifecycle state machine, token allowli
 **User Story**: As a developer, I want the codebase to reflect JEJEJO's identity and corrected architecture so that the code is maintainable and free of known bugs.
 
 **Acceptance Criteria**:
-- AC-2.1: The workspace is renamed from `Checkmate-Escrow` to `jejejo`.
+- AC-2.1: The workspace is named `jejejo`.
 - AC-2.2: The `contracts/escrow` crate is renamed to `contracts/wager` with the contract struct renamed to `WagerContract`.
 - AC-2.3: The `contracts/oracle` crate is renamed to `contracts/oracle-store` with the contract struct renamed to `OracleStoreContract`.
 - AC-2.4: A new `contracts/oracle-registry` crate is added containing the `OracleRegistry` contract.
@@ -298,8 +296,8 @@ JEJEJO preserves the battle-tested escrow lifecycle state machine, token allowli
 - AC-19.2: `docs/architecture.md` describes the three-contract architecture (WagerContract, OracleRegistry, OracleStoreContract), the frontend, and the off-chain indexer.
 - AC-19.3: `docs/setup.md` provides step-by-step local development setup for contracts and frontend.
 - AC-19.4: `CONTRIBUTING.md` describes branching strategy, commit conventions, PR process, and code style.
-- AC-19.5: `CHANGELOG.md` records changes with version, date, and description starting from v1.0.0 (Checkmate-Escrow base) through the JEJEJO transformation.
-- AC-19.6: `NOTICE` file credits the original Checkmate-Escrow project.
+- AC-19.5: `CHANGELOG.md` records changes with version, date, and description starting from v1.0.0 (JEJEJO initial release).
+- AC-19.6: `LICENSE` file is present with MIT license.
 
 ---
 

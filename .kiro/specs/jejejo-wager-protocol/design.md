@@ -2,7 +2,7 @@
 
 ## Overview
 
-JEJEJO is structured as three Soroban smart contracts, a React/TypeScript frontend, and a lightweight off-chain event indexer. The original Checkmate-Escrow two-contract architecture is extended with an OracleRegistry and the frontend/indexer layers that were planned but never built in the original roadmap.
+JEJEJO is structured as three Soroban smart contracts, a React/TypeScript frontend, and a lightweight off-chain event indexer.
 
 ---
 
@@ -48,11 +48,10 @@ JEJEJO is structured as three Soroban smart contracts, a React/TypeScript fronte
 
 ### 1. WagerContract (`contracts/wager`)
 
-The core contract. Derived from Checkmate-Escrow's `EscrowContract` with the following changes:
-- Renamed types: `Match` → `Wager`, `Platform` → `EventCategory`, `game_id` → `event_id`, `event_metadata` added.
-- Oracle authorization delegated to `OracleRegistry` instead of a single stored address.
-- `Disputed` state added between `Active` and `Completed`.
-- Bugs fixed: duplicate `DataKey` variant, storage tier mismatch, `initialize` error return.
+The core contract. Implements the full wager lifecycle with the following design:
+- Types: `Wager`, `WagerState`, `EventCategory`, `Outcome`.
+- Oracle authorization delegated to `OracleRegistry` for per-category multi-oracle support.
+- `Disputed` state between `Active` and `Completed` with configurable dispute window.
 
 #### Data Types
 
@@ -198,13 +197,7 @@ pub enum DataKey {
 
 ### 3. OracleStoreContract (`contracts/oracle-store`)
 
-Renamed and lightly refactored from Checkmate-Escrow's `OracleContract`. Stores verified event results as an audit log. Not the payout authority — that is the WagerContract via OracleRegistry.
-
-Changes from original:
-- Renamed `OracleContract` → `OracleStoreContract`.
-- `ResultEntry` uses `EventCategory` instead of `Platform`.
-- `submit_result` signature updated to use `event_id` and `EventCategory`.
-- Bugs fixed: consistent with renamed types.
+Stores verified event results as an audit log. Not the payout authority — that is the WagerContract via OracleRegistry.
 
 ---
 
@@ -344,44 +337,19 @@ A lightweight Node.js service that:
 
 ---
 
-## Codebase Refactor Plan
+## Codebase Structure
 
-### Renames
+### Contract Layout
 
-| Old | New |
+| Contract | Crate |
 |---|---|
-| `Checkmate-Escrow/` root | `JEJEJO/` |
-| `contracts/escrow` | `contracts/wager` |
-| `contracts/oracle` | `contracts/oracle-store` |
-| `EscrowContract` | `WagerContract` |
-| `OracleContract` | `OracleStoreContract` |
-| `Match` struct | `Wager` struct |
-| `MatchState` enum | `WagerState` enum |
-| `Platform` enum | `EventCategory` enum |
-| `Winner` enum | `Outcome` enum |
-| `game_id` field | `event_id` field |
-| `create_match` | `create_wager` |
-| `cancel_match` | `cancel_wager` |
-| `expire_match` | `expire_wager` |
-| `get_player_matches` | `get_participant_wagers` |
-| `get_pending_matches` | `get_pending_wagers` |
-| `get_active_matches` | `get_active_wagers` |
-| Event namespace `match` | `wager` |
-
-### Bug Fixes Applied During Refactor
-
-1. Remove duplicate `DataKey::AllowedTokenCount` from `types.rs`.
-2. `WagerContract::initialize` returns `Result<(), Error>` and returns `Err(AlreadyInitialized)`.
-3. `is_token_allowed` reads from `instance` storage (not `persistent`).
-4. `submit_result_with_oracle_record` passes `caller` to the internal `submit_result` call.
-5. `submit_result` now checks OracleRegistry instead of comparing against a single stored oracle address.
-6. `remove_live_match` call in `submit_result` is removed (it was calling a non-existent function — was dead code).
+| WagerContract | `contracts/wager` |
+| OracleRegistry | `contracts/oracle-registry` |
+| OracleStoreContract | `contracts/oracle-store` |
 
 ---
 
-## New Contract: OracleRegistry
-
-This contract has no equivalent in Checkmate-Escrow and is written from scratch.
+## OracleRegistry Design
 
 ### Key Design Decisions
 
@@ -397,8 +365,7 @@ This contract has no equivalent in Checkmate-Escrow and is written from scratch.
 ```
 JEJEJO/
 ├── README.md                     # Product overview, quick start, env vars
-├── NOTICE                        # Attribution to Checkmate-Escrow
-├── LICENSE                       # MIT (updated with JEJEJO contributors)
+├── LICENSE                       # MIT (JEJEJO contributors)
 ├── CHANGELOG.md                  # Version history
 ├── CONTRIBUTING.md               # Branching, commits, PR process
 ├── docs/
@@ -422,7 +389,7 @@ JEJEJO/
 
 Commits are grouped by feature/concern so the development history is reviewable:
 
-1. `chore: rename workspace to JEJEJO, update Cargo.toml`
+1. `chore: init JEJEJO workspace, configure Cargo.toml`
 2. `fix: resolve known bugs in escrow contract (duplicate DataKey, storage tier mismatch, initialize return type)`
 3. `refactor: rename contracts/escrow → contracts/wager, update all types and event namespaces`
 4. `feat: add Disputed state and dispute window to WagerContract`
@@ -430,7 +397,7 @@ Commits are grouped by feature/concern so the development history is reviewable:
 6. `refactor: rename contracts/oracle → contracts/oracle-store, update types`
 7. `feat: wire WagerContract to OracleRegistry for multi-oracle authorization`
 8. `test: update all contract tests for renamed types and new lifecycle`
-9. `docs: add NOTICE, update LICENSE, update README and architecture docs`
+9. `docs: update LICENSE, update README and architecture docs`
 10. `docs: add CHANGELOG, CONTRIBUTING, setup guide`
 11. `feat(frontend): scaffold React/TS frontend with Vite, Tailwind, routing`
 12. `feat(frontend): implement wallet authentication with Freighter`

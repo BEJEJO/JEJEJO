@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Drips Wave program rewards contributors for fixing issues in the Checkmate-Escrow project. This guide explains how to participate, claim wave-ready issues, understand point values, and submit your work.
+The Drips Wave program rewards contributors for fixing issues in the JEJEJO project. This guide explains how to participate, claim wave-ready issues, understand point values, and submit your work.
 
 ## How to Participate
 

@@ -1,6 +1,6 @@
 # Contributing Contract Changes
 
-This guide explains Soroban-specific patterns and conventions for contributors working on smart contract code in `contracts/escrow` and `contracts/oracle`.
+This guide explains Soroban-specific patterns and conventions for contributors working on smart contract code in `contracts/wager` and `contracts/oracle-store`.
 
 ## Why this guide exists
 
@@ -95,7 +95,7 @@ Soroban storage records are not permanent forever. Each persistent write has a T
 - When updating an index or match entry, write the same key again to refresh its TTL.
 - For active match indices, refresh TTL on every state transition to prevent accidental expiration.
 
-### Recommended TTL model for Checkmate-Escrow
+### Recommended TTL model for JEJEJO
 
 - Treat `Match` records as persistent but bounded by a retention window.
 - Treat `PlayerMatches` and `ActiveMatches` as indexes that are refreshed as state changes.
@@ -188,4 +188,4 @@ Before opening a PR, make sure your change includes:
 
 ## Where to update this guide
 
-If you add a new Soroban contract pattern or change the storage model for `contracts/escrow` or `contracts/oracle`, update this guide.
+If you add a new Soroban contract pattern or change the storage model for `contracts/wager` or `contracts/oracle-store`, update this guide.

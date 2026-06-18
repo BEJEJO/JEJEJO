@@ -9,7 +9,7 @@ assignees: ""
 # 📚 Documentation Work
 
 > [!NOTE]
-> Clear, comprehensive documentation makes contributing to Checkmate-Escrow easier for everyone.
+> Clear, comprehensive documentation makes contributing to JEJEJO easier for everyone.
 
 ---
 

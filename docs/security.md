@@ -1,6 +1,6 @@
 # Threat Model & Security
 
-This document outlines the security considerations, trust assumptions, and risk mitigations for the Checkmate-Escrow smart contracts on Stellar Soroban.
+This document outlines the security considerations, trust assumptions, and risk mitigations for the JEJEJO smart contracts on Stellar Soroban.
 
 ## Table of Contents
 
@@ -264,9 +264,9 @@ stellar contract invoke --id $ESCROW_ID -- is_paused
 
 For security-related issues or concerns:
 
-- **Critical Vulnerabilities**: Report immediately via [security@checkmate-escrow.com](mailto:security@checkmate-escrow.com)
-- **General Security Questions**: [security@checkmate-escrow.com](mailto:security@checkmate-escrow.com)
-- **Bug Bounty**: See our bug bounty program at [bounty.checkmate-escrow.com](https://bounty.checkmate-escrow.com)
+- **Critical Vulnerabilities**: Report immediately via [security@jejejo.io](mailto:security@jejejo.io)
+- **General Security Questions**: [security@jejejo.io](mailto:security@jejejo.io)
+- **Bug Bounty**: See our bug bounty program at [bounty.jejejo.io](https://bounty.jejejo.io)
 
 ## Version History
 

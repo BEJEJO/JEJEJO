@@ -8,10 +8,10 @@ Tasks are organized into phases matching the git commit strategy. Each task maps
 
 ## Phase 1: Codebase Foundation
 
-- [ ] 1. Rename workspace and update Cargo configuration
-  - [ ] 1.1 Rename the root directory context from `Checkmate-Escrow` to `JEJEJO` in `Cargo.toml` workspace metadata
+- [ ] 1. Set up workspace and Cargo configuration
+  - [ ] 1.1 Set the workspace name to `JEJEJO` in `Cargo.toml` workspace metadata
   - [ ] 1.2 Update `Cargo.toml` workspace members to `contracts/wager`, `contracts/oracle-registry`, `contracts/oracle-store`
-  - [ ] 1.3 Update `environments.toml` to reference `JEJEJO` instead of `Checkmate-Escrow`
+  - [ ] 1.3 Update `environments.toml` to reference `JEJEJO`
   - [ ] 1.4 Update `.env.example` with new contract variable names (`CONTRACT_WAGER`, `CONTRACT_ORACLE_REGISTRY`, `CONTRACT_ORACLE_STORE`)
   - **Requirement**: REQ-2 (AC-2.1, AC-2.2)
 
@@ -124,11 +124,10 @@ Tasks are organized into phases matching the git commit strategy. Each task maps
 ## Phase 6: Documentation
 
 - [ ] 11. Update root-level documentation
-  - [ ] 11.1 Rewrite `README.md` for JEJEJO: new product description, updated quick start commands, updated env vars, updated API reference, updated roadmap summary, acknowledgements section crediting Checkmate-Escrow
-  - [ ] 11.2 Create `NOTICE` file: credit "Checkmate-Escrow, copyright (c) 2026 StellarCheckMate Contributors, MIT License" with link to original repo
-  - [ ] 11.3 Update `LICENSE`: add JEJEJO contributors line while preserving original StellarCheckMate Contributors copyright
-  - [ ] 11.4 Create `CHANGELOG.md` starting with `v1.0.0-base` (Checkmate-Escrow origin) and `v2.0.0` (JEJEJO transformation)
-  - [ ] 11.5 Rewrite `CONTRIBUTING.md`: branching strategy (`main`, `develop`, `feature/*`, `fix/*`), conventional commit format, PR checklist, code style (rustfmt, clippy)
+  - [ ] 11.1 Rewrite `README.md` for JEJEJO: product description, quick start commands, env vars, API reference, roadmap summary, acknowledgements section
+  - [ ] 11.2 Update `LICENSE`: MIT license crediting JEJEJO contributors
+  - [ ] 11.3 Create `CHANGELOG.md` starting with `v1.0.0` (JEJEJO initial release)
+  - [ ] 11.4 Rewrite `CONTRIBUTING.md`: branching strategy (`main`, `develop`, `feature/*`, `fix/*`), conventional commit format, PR checklist, code style (rustfmt, clippy)
   - **Requirement**: REQ-1, REQ-19
 
 - [ ] 12. Update technical documentation
@@ -157,7 +156,7 @@ Tasks are organized into phases matching the git commit strategy. Each task maps
 - [ ] 14. Implement shared layout and navigation components
   - [ ] 14.1 Create `src/components/layout/Navbar.tsx`: logo, nav links, wallet connect button, theme toggle, notification bell; collapses to hamburger on mobile
   - [ ] 14.2 Create `src/components/layout/PageWrapper.tsx`: max-width container, padding, fade-in animation
-  - [ ] 14.3 Create `src/components/layout/Footer.tsx`: links, attribution to Checkmate-Escrow
+  - [ ] 14.3 Create `src/components/layout/Footer.tsx`: links, JEJEJO branding
   - [ ] 14.4 Create common components: `Button`, `Badge`, `Card`, `Modal`, `Input`, `Spinner`, `Skeleton` in `src/components/common/`
   - [ ] 14.5 Add wave SVG divider component with CSS animation for hero sections
   - **Requirement**: REQ-9, REQ-17, REQ-18

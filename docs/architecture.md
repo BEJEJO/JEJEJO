@@ -1,6 +1,6 @@
 # Architecture Overview
 
-Checkmate-Escrow is a trustless chess wagering platform built on Stellar Soroban smart contracts. This document describes the high-level architecture and the stable public API surface.
+JEJEJO is a trustless prediction market and wager protocol built on Stellar Soroban smart contracts. This document describes the high-level architecture and the stable public API surface.
 
 ## Components
 

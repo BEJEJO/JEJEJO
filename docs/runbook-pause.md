@@ -1,6 +1,6 @@
 # Runbook: Pause & Incident Response
 
-This runbook describes when and how to pause the Checkmate-Escrow contracts, what users experience during a pause, and the steps to investigate and recover from an incident. Keep this document accessible to all on-call operators — speed matters in a live incident.
+This runbook describes when and how to pause the JEJEJO contracts, what users experience during a pause, and the steps to investigate and recover from an incident. Keep this document accessible to all on-call operators — speed matters in a live incident.
 
 ---
 

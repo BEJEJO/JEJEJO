@@ -1,6 +1,6 @@
-# Checkmate-Escrow Demo: Testnet Walkthrough
+# JEJEJO Demo: Testnet Walkthrough
 
-End-to-end walkthrough of a match lifecycle on Stellar testnet — deploy, fund, play, payout.
+End-to-end walkthrough of a wager lifecycle on Stellar testnet — deploy, fund, resolve, payout.
 
 ## Prerequisites
 

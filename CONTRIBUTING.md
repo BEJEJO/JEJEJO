@@ -1,6 +1,6 @@
-# Contributing to Checkmate-Escrow
+# Contributing to JEJEJO
 
-Thanks for your interest in contributing to Checkmate-Escrow! This guide will help you get started.
+Thanks for your interest in contributing to JEJEJO! This guide will help you get started.
 
 ## Getting Started
 
@@ -16,8 +16,8 @@ Thanks for your interest in contributing to Checkmate-Escrow! This guide will he
 1. Fork the repository
 2. Clone your fork:
    ```bash
-   git clone https://github.com/your-username/checkmate-escrow.git
-   cd checkmate-escrow
+   git clone https://github.com/your-username/jejejo.git
+   cd jejejo
    ```
 3. Set up your environment:
    ```bash
@@ -191,7 +191,7 @@ fn test_double_initialize_fails() {
 
 ## Drips Wave Contributions
 
-Checkmate-Escrow participates in Drips Wave contributor funding. Issues labeled `wave-ready` are eligible for funding:
+JEJEJO participates in Drips Wave contributor funding. Issues labeled `wave-ready` are eligible for funding:
 
 - `trivial` (100 points): Documentation, simple tests, minor fixes
 - `medium` (150 points): Oracle helpers, validation logic, moderate features
